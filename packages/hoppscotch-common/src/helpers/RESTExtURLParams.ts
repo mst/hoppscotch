@@ -56,6 +56,10 @@ function parseV0ExtURL(
     }
   }
 
+  if (urlParams.auth && typeof urlParams.auth === "string") {
+    resolvedReq.auth = JSON.parse(urlParams.auth)
+  }
+  
   if (urlParams.contentType) {
     if (urlParams.contentType === "multipart/form-data") {
       resolvedReq.body = {
